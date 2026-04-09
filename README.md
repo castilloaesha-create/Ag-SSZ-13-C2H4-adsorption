@@ -25,7 +25,6 @@ Output/
 ├── 7_ENERGY_SSZ_13_Ag_Al_C2H4/   # SCF energy calculations (Ag-exchanged)
 ├── 8_ENERGY_SSZ_13_C2H4/         # SCF energy calculations (unsubstituted)
 ├── 9_ENERGY_C2H4/                # Isolated ethylene energy calculations
-└── APPENDICES_DRAFT.md           # Manuscript appendices draft
 ```
 
 ## Systems Studied
