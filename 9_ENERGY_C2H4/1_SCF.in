@@ -1,0 +1,41 @@
+&CONTROL  
+outdir='./outdir'
+calculation='scf'
+pseudo_dir='./'
+/
+
+&SYSTEM  
+ibrav=0
+nat=6
+ntyp=2
+ecutwfc=60
+ecutrho=240
+occupations='smearing'
+degauss=0.02
+smearing='gaussian'
+vdw_corr='dft-d3'
+/
+
+&ELECTRONS  
+conv_thr=1.0E-8
+/
+
+ATOMIC_SPECIES  
+H       1.00794  H.upf
+C      12.01070  C.upf
+
+ATOMIC_POSITIONS (angstrom) 
+H               -1.1030723417        8.7491223027        9.7486463515
+C               -1.1915800587        7.6688404545        9.6327745965
+H                0.8899256523        7.2920564840        9.4696758620
+C               -0.1219273646        6.8867783114        9.4832565834
+H               -2.2034308014        7.2635590631        9.6463439277
+H               -0.2104350860        5.8064933844        9.3673926789
+
+K_POINTS (automatic) 
+3 3 3 0 0 0
+
+CELL_PARAMETERS {angstrom}
+  13.575883649   0.028523357   0.006348864
+  -6.793135294  11.451399982  -0.012479304
+  -0.094784507  -0.151823469  14.716431142

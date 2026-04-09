@@ -1,0 +1,49 @@
+&CONTROL  
+outdir='./outdir'
+calculation='relax'
+pseudo_dir='./'
+forc_conv_thr = 0.0010
+etot_conv_thr = 0.0001
+/
+
+&SYSTEM
+ibrav       = 0    
+ecutwfc     = 60
+ecutrho     = 240
+nat         = 6
+ntyp        = 2
+occupations = 'smearing'
+smearing    = 'gaussian'
+degauss     = 0.02
+vdw_corr    = 'dft-d3'
+/
+
+&ELECTRONS
+conv_thr    =  1.00000e-08
+/
+
+&IONS
+ion_dynamics = 'bfgs'
+/
+
+K_POINTS {gamma}
+
+ATOMIC_SPECIES
+H       1.00794  H.upf
+C      12.01070  C.upf
+
+ATOMIC_POSITIONS {angstrom}
+H       0.270420   5.120500   8.912220
+H      -1.838630   6.308700   9.590070
+C       0.313190   6.145840   9.259810
+C      -0.885640   6.821210   9.645070
+H       1.266150   6.658260   9.314790
+H      -0.842890   7.846560   9.992560
+
+CELL_PARAMETERS {angstrom}
+  13.575883649   0.028523357   0.006348864
+  -6.793135294  11.451399982  -0.012479304
+  -0.094784507  -0.151823469  14.716431142
+
+
+

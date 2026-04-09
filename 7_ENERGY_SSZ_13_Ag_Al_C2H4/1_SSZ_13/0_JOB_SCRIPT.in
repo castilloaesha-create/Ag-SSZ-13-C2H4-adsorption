@@ -1,0 +1,54 @@
+#!/bin/bash
+#SBATCH --partition=batch
+#SBATCH --qos=240c-1h_batch
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=40
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=144G
+#SBATCH --job-name=Energy
+#SBATCH --output=Output.out
+#SBATCH --mail-user=artanthony.munio@g.msuiit.edu.ph
+#SBATCH --mail-type=ALL
+#SBATCH --requeue
+
+# Set stack size to unlimited
+ulimit -s unlimited
+
+## Start benchmarking:
+start_time=$(date +%s.%N)
+
+## Print SLURM job parameters:
+echo "Submitted on $(date)"
+echo "SLURM JOB PARAMETERS"
+echo "SLURM_JOB_ID          : ${SLURM_JOB_ID}"
+echo "SLURM_JOB_NAME        : ${SLURM_JOB_NAME}"
+echo "SLURM_JOB_NUM_NODES   : ${SLURM_JOB_NUM_NODES}"
+echo "SLURM_JOB_NODELIST    : ${SLURM_JOB_NODELIST}"
+echo "SLURM_NTASKS          : ${SLURM_NTASKS}"
+echo "SLURM_NTASKS_PER_NODE : ${SLURM_NTASKS_PER_NODE}"
+echo "SLURM_MEM_PER_NODE    : ${SLURM_MEM_PER_NODE}"
+
+## Reset modules
+module load anaconda
+mamba activate qe-6.4.1
+
+## Main job
+
+DATADIR=/home/scratch3/Calculations
+CPU_TOT=$(python -c "print($SLURM_JOB_NUM_NODES * $SLURM_NTASKS_PER_NODE)")
+echo "Using a total of ${CPU_TOT} CPUs ($SLURM_JOB_NUM_NODES x $SLURM_NTASKS_PER_NODE)"
+
+mpirun pw.x -i 1_SCF.in> 1_SCF.out
+
+## End benchmarking:
+end_time=$(date +%s.%N)
+echo "Finished on $(date)"
+run_time=$(python -c "print($end_time - $start_time)")
+echo "Total runtime (sec): ${run_time}"
+
+
+
+
+
+
+

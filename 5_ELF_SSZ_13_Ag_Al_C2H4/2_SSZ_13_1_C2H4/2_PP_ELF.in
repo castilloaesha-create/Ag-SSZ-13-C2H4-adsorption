@@ -1,0 +1,17 @@
+&INPUTPP
+prefix = 'pwscf' ,
+outdir = './outdir' ,
+filplot = 'ELF.dat' ,
+plot_num = 8,
+/
+
+&PLOT
+nfile = 1 ,
+filepp(1) = 'ELF.dat',
+weight(1) = 1.0,
+fileout = 'ELF.cube' ,
+iflag = 3 ,
+output_format = 6 ,
+interpolation = 'fourier' ,
+/
+
