@@ -1,0 +1,43 @@
+# Quantum ESPRESSO output files
+*.out
+*.out.*
+*.txt
+
+# Temporary and lock files
+*~
+.#*
+*.lock
+.~lock.*#
+
+# Output directories from QE calculations
+outdir/
+out/
+*.save/
+
+# Large data files
+*.dat
+*.cube
+*.xsf
+*.vesta
+
+# Binary files
+*.wfc
+*.rho
+*.pot
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Jupyter notebooks (optional - uncomment if needed)
+# *.ipynb_checkpoints/
